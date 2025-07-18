@@ -3,6 +3,7 @@ return {
   opts = function(_, opts)
     local ensure = {
       "gofumpt",
+      "pyright",
       "shfmt",
       "stylua",
       "gopls",

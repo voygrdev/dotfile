@@ -8,6 +8,7 @@ return {
       "javascript",
       "rust",
       "typescript",
+      "python",
       "tsx",
       "html",
       "css",
