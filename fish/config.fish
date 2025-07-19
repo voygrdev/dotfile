@@ -1,8 +1,21 @@
 # ===== SSH AUTH =====
 
+# Start ssh-agent if not running
 if not set -q SSH_AUTH_SOCK
     eval (ssh-agent -c)
 end
+
+# List of your SSH keys
+set ssh_keys ~/.ssh/id_ed25519_github_auth ~/.ssh/id_ed25519_github_signing
+
+# Add each key if it's not already loaded
+for key in $ssh_keys
+    ssh-add -l | grep (ssh-keygen -lf $key.pub | awk '{print $2}') > /dev/null 2>&1
+    if test $status -ne 0
+        ssh-add $key > /dev/null 2>&1
+    end
+end
+
 
 # ===== Theme Modifications =====
 
