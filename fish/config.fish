@@ -113,6 +113,8 @@ alias tns="tmux new -s"
 alias td="tmux detach"
 alias tls="tmux ls"
 alias ta="tmux attach -t"
+alias tt='tmux split-window -v -p 30 \; split-window -h -p 66 \; split-window -h \; select-pane -t 1'
+alias tn='tmux new-window -c "#{pane_current_path}"'
 
 # Custom
 alias appx="open https://app.100xdevs.com/courses"
